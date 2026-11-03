@@ -1,46 +1,19 @@
-import { useState } from 'react'
-//import heroImg from './assets/hero.png'
-//import reactLogo from './assets/react.svg'
-//import viteLogo from './assets/vite.svg'
-import styled from 'styled-components'
-import './App.css'
+import { useState } from "react";
+import Container from './components/Container'
 
-const Description = styled.p`
-  font-size : 20px;
-  color : #888;
-  background : red;
-`
-
-function Logo(props) {
-  const style = {
-    fontSize : '30px',
-    color : props.color
+const App = () => {
+  const today = new Date()
+  const [year,setYear] = useState(today.getFullYear())
+  const [month,setMonth] = useState(today.getMonth())
+  const onGoToday = () => {
+    setYear(today.getFullYear())
+    setMonth(today.getMonth() + 1)
   }
 
   return (
-      <div>
-      <h1 style={style}>{props.title}</h1>
-      </div>
-  )
-}
+    <Container>
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <Logo title="변경 확인" color="black"/>
-      <Logo title="확인 완료" color="blue"/>
-      <h1>Vite + React</h1>
-      <div>
-        <button type="button" className="counter" onClick={() => setCount((count) => count + 1)}>
-          Count is {count}
-        </button>
-      </div>
-      <Description>
-        Click on the Vite and React logos to learn more
-      </Description>
-    </>
+    </Container>
   )
 }
 
